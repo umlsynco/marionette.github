@@ -35,8 +35,7 @@ require(['github'], function(Github) {
   
   var repos = user.getRepositories();
   var repo = repos.getRepository("umlsync");
-  
-  
+
   repos.on("add", function(repo) {
     var default_branch = repo.get("default_branch");
     var branches = repo.getBranches();
@@ -47,11 +46,12 @@ require(['github'], function(Github) {
 	    branch.on("sync", function() {
            var tree = branch.getTree();
            tree.fetch({success: function(data){
-              alert("HANDLE SUCCESS !!!");
+             // alert("HANDLE SUCCESS !!!");
            }}); // Fetch root level
            tree.on("add", function(model) {
             // tree.loadSubTree(model);
            });
+           github.commit(branch, tree, "message");
 		});
 		branch.fetch();
 	   }
