@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>UML Framework: UMLSync</title>
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/underscore-min.js"></script>
+    <script type="text/javascript" src="lib/backbone-min.js"></script>
+
+</head>
+<body>
+<div id="body">
+    <div class="header-nav ui-state-active" id="content-header">
+        <div>
+            <ul id="header-menu" class="header-menu-left"></ul>
+        </div>
+        <div>
+            <ul class="header-menu-right">
+                <li><a href="http://http://umlsync.org/">Log out</a></li>
+                <li><a href="http://127.0.0.1:8000/about">About</a></li>
+                <li><a href="#">Settings </a></li>
+                <li><a href="#">Report a bug</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="content">
+        <div id="content-left" style="width:200px;height:100%;padding:0;margin:0;position:absolute;">
+        </div>
+        <div id="content-left-right-resize"
+             style="width:6px;left:200px;height:100%;position:absolute;padding:0;margin:0;border:0px solid gray;background-color:gray;cursor: col-resize;"></div>
+        <div id="content-right" style="left:206px;height:100%;position:absolute;padding:0;margin:0;">
+            <div id="tabs">
+                <ul>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div id="content-bottom" style="clear:both;">bottom</div>
+    <div id="content-dialog" style="position:absolute;visibility:hidden;"></div>
+</div>
+    <script type="text/javascript" src="lib/require.js" data-main="main.js"></script>
+  <div style="width: 1455px; height: 353px; z-index: 1001; display:none;" class="ui-widget-overlay"></div>
+</body>
+</html>
