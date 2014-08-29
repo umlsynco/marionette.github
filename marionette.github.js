@@ -172,6 +172,9 @@ define(['jquery', 'underscore', 'base64', 'backbone', 'marionette'], function (j
 
             //////////////////////////////////////////////// REPOSITORY
             var RepositoryModel = Backbone.GithubModel.extend({
+                defaults: {
+                  full_name: 'none'
+                },
                 url: function (args) {
                     var username = this.login;
                     var reponame = this.get("name");
@@ -270,7 +273,12 @@ define(['jquery', 'underscore', 'base64', 'backbone', 'marionette'], function (j
         },
         onContinue: function(context) {
           var next = this.workingStack.pop();
-          this.trigger(next.event, $.extend({}, next.context, context));
+          if (next) {
+              this.trigger(next.event, $.extend({}, next.context, context));
+          }
+          else {
+              this.trigger("github:complete",context);
+          }
         },
         onCommitBlob: function(args) {
           var branch = args[0],
